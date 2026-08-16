@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechTitan - Interactive Bot Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ================= LOGIN PAGE SECTION ================= -->
+  <section id="login-section" class="page-section">
+    <div class="login-wrapper">
+      
+      <!-- Left Side Robot -->
+      <div class="side-bot left-bot">
+        <div class="bot-head">
+          <div class="bot-ear left-ear"></div>
+          <div class="bot-ear right-ear"></div>
+          <div class="bot-antenna"></div>
+          <div class="bot-eyes">
+            <span class="eye side-eye-left"></span>
+            <span class="eye side-eye-right"></span>
+          </div>
+        </div>
+        <div class="bot-body">
+          <div class="ticker-screen">
+            <div class="ticker-track">
+              <div class="ticker-item"><i class="fa-solid fa-calculator"></i> Calculator & Tools</div>
+              <div class="ticker-item"><i class="fa-solid fa-cloud-sun"></i> Live Weather Hub</div>
+              <div class="ticker-item"><i class="fa-solid fa-book"></i> Digital Bookstore</div>
+              <div class="ticker-item"><i class="fa-solid fa-shirt"></i> Clothing Store</div>
+              <!-- Duplicate set for seamless continuous scrolling -->
+              <div class="ticker-item"><i class="fa-solid fa-calculator"></i> Calculator & Tools</div>
+              <div class="ticker-item"><i class="fa-solid fa-cloud-sun"></i> Live Weather Hub</div>
+              <div class="ticker-item"><i class="fa-solid fa-book"></i> Digital Bookstore</div>
+              <div class="ticker-item"><i class="fa-solid fa-shirt"></i> Clothing Store</div>
+            </div>
+          </div>
+        </div>
+        <div class="bot-foot-container">
+          <div class="bot-foot"></div>
+          <div class="bot-foot"></div>
+        </div>
+      </div>
+
+      <!-- Main Login Bot Container -->
+      <div class="main-login-container">
+        
+        <!-- Speech Bubble -->
+        <div id="speech-bubble" class="speech-bubble">
+          Beep Boop! Welcome to TechTitan. Who goes there?
+        </div>
+
+        <!-- Main Center Robot -->
+        <div class="robot-character mood-neutral" id="main-robot">
+          <div class="robot-antenna">
+            <div class="antenna-tip"></div>
+          </div>
+          
+          <div class="robot-head">
+            <div class="main-ear left-ear"></div>
+            <div class="main-ear right-ear"></div>
+            <div class="robot-face">
+              <div class="eye-wrapper">
+                <div class="robot-eye left-eye"></div>
+                <div class="robot-eye right-eye"></div>
+              </div>
+              <div class="robot-mouth" id="robot-mouth"></div>
+            </div>
+          </div>
+
+          <div class="robot-hands">
+            <div class="hand left-hand"></div>
+            <div class="hand right-hand"></div>
+          </div>
+        </div>
+
+        <!-- Login Form Card -->
+        <!-- Login Form Card -->
+        <div class="login-card">
+          <h2>Authentication Panel</h2>
+          <form id="login-form">
+            <div class="input-group">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" id="username" placeholder="Username" required autocomplete="off">
+            </div>
+            <div class="input-group">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" id="email" placeholder="Email Address" required autocomplete="off">
+            </div>
+            <div class="input-group">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" id="password" placeholder="Password" required>
+              <i class="fa-solid fa-eye toggle-password" id="toggle-password"></i>
+            </div>
+            
+            <!-- NEW PILL GRADIENT LOGIN BUTTON -->
+            <button type="submit" class="btn-tech-pill btn-login">
+              <span class="btn-icon">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+              </span>
+              <span class="btn-text">LOG - IN</span>
+              <span class="btn-arrow">›</span>
+            </button>
+          </form>
+
+          <!-- DIVIDER & SOCIAL LOGIN GRID INSIDE CARD -->
+          <hr class="form-divider" />
+
+          <div class="social-login-container">
+            <p class="social-title">Or log in using your account:</p>
+            <div class="social-grid">
+              <!-- Google -->
+              <button type="button" class="social-btn">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                  </svg>
+                </div>
+                <span>Google</span>
+              </button>
+
+              <!-- Facebook -->
+              <button type="button" class="social-btn active">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="#1877F2">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                </div>
+                <span>Facebook</span>
+              </button>
+
+              <!-- Apple -->
+              <button type="button" class="social-btn">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="#000000">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.85c.66-.8 1.11-1.92.99-3.04-.96.04-2.12.64-2.8 1.44-.61.71-1.14 1.86-1 2.97 1.08.08 2.16-.57 2.81-1.37z"/>
+                  </svg>
+                </div>
+                <span>Apple</span>
+              </button>
+
+              <!-- LinkedIn -->
+              <button type="button" class="social-btn">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="#0A66C2">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.77a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26z"/>
+                  </svg>
+                </div>
+                <span>Linkedin</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-robot-feet">
+          <div class="main-foot"></div>
+          <div class="main-foot"></div>
+        </div>
+
+      </div>
+
+      <!-- Right Side Robot -->
+      <div class="side-bot right-bot">
+        <div class="bot-head">
+          <div class="bot-ear left-ear"></div>
+          <div class="bot-ear right-ear"></div>
+          <div class="bot-antenna"></div>
+          <div class="bot-eyes">
+            <span class="eye side-eye-left"></span>
+            <span class="eye side-eye-right"></span>
+          </div>
+        </div>
+        <div class="bot-body">
+          <div class="ticker-screen">
+            <div class="ticker-track">
+              <div class="ticker-item"><i class="fa-solid fa-utensils"></i> Food Ordering</div>
+              <div class="ticker-item"><i class="fa-solid fa-wallet"></i> Money Manager</div>
+              <div class="ticker-item"><i class="fa-solid fa-comments"></i> AI Assistant Chat</div>
+              <div class="ticker-item"><i class="fa-solid fa-microchip"></i> System Settings</div>
+              <!-- Duplicate set for seamless continuous scrolling -->
+              <div class="ticker-item"><i class="fa-solid fa-utensils"></i> Food Ordering</div>
+              <div class="ticker-item"><i class="fa-solid fa-wallet"></i> Money Manager</div>
+              <div class="ticker-item"><i class="fa-solid fa-comments"></i> AI Assistant Chat</div>
+              <div class="ticker-item"><i class="fa-solid fa-microchip"></i> System Settings</div>
+            </div>
+          </div>
+        </div>
+        <div class="bot-foot-container">
+          <div class="bot-foot"></div>
+          <div class="bot-foot"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= HOME PAGE DASHBOARD ================= -->
+  <div id="app-dashboard" class="hidden">
+    
+    <header class="navbar">
+      <div class="nav-logo">
+        <i class="fa-solid fa-robot"></i> TechTitan Portal
+      </div>
+      <nav class="nav-links">
+        <button class="nav-btn active" data-tab="home-tab"><i class="fa-solid fa-house"></i> Home</button>
+        <button class="nav-btn" data-tab="about-tab"><i class="fa-solid fa-circle-info"></i> About</button>
+        <button class="nav-btn" data-tab="contact-tab"><i class="fa-solid fa-envelope"></i> Contact</button>
+      </nav>
+      
+      <!-- NEW PILL GRADIENT LOGOUT BUTTON -->
+      <button id="logout-btn" class="btn-tech-pill btn-logout">
+        <span class="btn-icon">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </span>
+        <span class="btn-text">LOG - OUT</span>
+        <span class="btn-arrow">›</span>
+      </button>
+    </header>
+
+    <main class="content-area">
+
+      <!-- HOME TAB -->
+      <section id="home-tab" class="tab-content active-tab">
+        <div class="welcome-header">
+          <h1>Welcome, <span id="user-display-name">TechTitan</span>!</h1>
+          <p>Access your modules from the dashboard below.</p>
+        </div>
+
+        <div class="modules-grid">
+          <div class="module-card">
+            <div class="module-icon"><i class="fa-solid fa-utensils"></i></div>
+            <h3>Food Ordering</h3>
+            <p>Order food and track menu items.</p>
+            <button class="module-btn" onclick="openModule('Food Ordering')">Launch</button>
+          </div>
+
+          <div class="module-card">
+            <div class="module-icon"><i class="fa-solid fa-wallet"></i></div>
+            <h3>Money Manager</h3>
+            <p>Track expenses and budget targets.</p>
+            <button class="module-btn" onclick="openModule('Money Manager')">Launch</button>
+          </div>
+
+          <div class="module-card">
+            <div class="module-icon"><i class="fa-solid fa-comments"></i></div>
+            <h3>AI Assistant Chat</h3>
+            <p>Live interactive AI assistance.</p>
+            <button class="module-btn" onclick="openModule('AI Assistant Chat')">Launch</button>
+          </div>
+
+          <div class="module-card">
+            <div class="module-icon"><i class="fa-solid fa-calculator"></i></div>
+            <h3>Calculator & Tools</h3>
+            <p>Mathematical calculations and conversions.</p>
+            <button class="module-btn" onclick="openModule('Calculator & Tools')">Launch</button>
+          </div>
+
+          <div class="module-card">
+            <div class="module-icon"><i class="fa-solid fa-cloud-sun"></i></div>
+            <h3>Live Weather Hub</h3>
+            <p>Real-time climate forecasts and metrics.</p>
+            <button class="module-btn" onclick="openModule('Live Weather Hub')">Launch</button>
+          </div>
+
+          <div class="module-card">
+            <div class="module-icon"><i class="fa-solid fa-book-open"></i></div>
+            <h3>Digital Bookstore</h3>
+            <p>E-library and book recommendation engine.</p>
+            <button class="module-btn" onclick="openModule('Digital Bookstore')">Launch</button>
+          </div>
+
+          <div class="module-card">
+            <div class="module-icon"><i class="fa-solid fa-shirt"></i></div>
+            <h3>Clothing Store</h3>
+            <p>Explore fashion trends and catalog items.</p>
+            <button class="module-btn" onclick="openModule('Clothing Store')">Launch</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT TAB -->
+      <section id="about-tab" class="tab-content hidden-tab">
+        <div class="info-card">
+          <h2><i class="fa-solid fa-robot"></i> About TechTitan System</h2>
+          <p>This application features automated bot security interfaces along with module routing for seamless access across services.</p>
+        </div>
+      </section>
+
+      <!-- CONTACT TAB -->
+      <section id="contact-tab" class="tab-content hidden-tab">
+        <div class="info-card">
+          <h2><i class="fa-solid fa-paper-plane"></i> Contact Support</h2>
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent!');">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="4" placeholder="How can we help?" required></textarea>
+            <button type="submit" class="module-btn">Send Message</button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
