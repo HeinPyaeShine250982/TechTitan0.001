@@ -4524,6 +4524,49 @@ button, input, select, textarea, a, [role="button"] {
   display: none;
 }
 
+/* =========================================================
+   GLOBAL FIX: AI CHAT INPUT BAR (Applies to Desktop & Mobile)
+   ========================================================= */
+.chat-input-bar, 
+.chat-controls,
+div[class*="chat-input"] {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Force ONLY the text box to expand */
+.chat-input-bar input,
+.chat-input-bar textarea,
+.chat-controls input,
+.chat-controls textarea,
+div[class*="chat-input"] input,
+div[class*="chat-input"] textarea {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* Force Send Button to stay compact */
+.chat-input-bar button,
+.chat-controls button,
+[class*="chat-input"] button,
+button[class*="send"] {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: 100px !important;
+  max-width: 140px !important;
+  padding: 10px 20px !important;
+  white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   MOBILE ONLY OVERRIDES (Max-Width 600px)
+   ========================================================= */
 @media screen and (max-width: 600px) {
   /* 1. Global Touch & Viewport Safeguards */
   html, body {
@@ -4586,7 +4629,7 @@ button, input, select, textarea, a, [role="button"] {
   }
 
   .android-only-rules span.valid {
-    color: #48bb78 !important; /* Turns green when requirement is met */
+    color: #48bb78 !important;
   }
 
   /* 5. Social Login Buttons Grid */
@@ -4609,40 +4652,14 @@ button, input, select, textarea, a, [role="button"] {
     order: 2 !important;
   }
 
-  /* 7. Fix AI Chat Bar Layout */
-  .chat-input-bar, .chat-controls, [class*="chat-input"] {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 8px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  .chat-input-bar input,
-  .chat-input-bar textarea,
-  [class*="chat-input"] input,
-  [class*="chat-input"] textarea {
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    width: 100% !important;
-  }
-
-  .chat-input-bar button,
-  [class*="chat-input"] button {
-    flex: 0 0 auto !important;
-    width: auto !important;
-    min-width: 60px !important;
-  }
-
   /* 8. Food Cart Top Position & Store Grid */
   .store-container, .food-ordering-wrapper {
     display: flex !important;
     flex-direction: column !important;
   }
 
-  .cart-container, .cart-sidebar, #cart-panel, .checkout-summary, [class*="cart"] {
-    order: -1 !important; /* Forces Food Cart to the top on mobile */
+  .cart-container, .cart-sidebar, #cart-panel, .checkout-summary {
+    order: -1 !important;
     position: relative !important;
     top: auto !important;
     right: auto !important;
