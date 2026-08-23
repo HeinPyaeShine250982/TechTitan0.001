@@ -2085,7 +2085,7 @@ const GROQ_CONFIG = {
   endpoint: "https://api.groq.com/openai/v1/chat/completions",
   model: "openai/gpt-oss-120b",
   storageKey: "techTitan_chat_history",
-  rateLimitMs: 1500
+  rateLimitMs: 15000
 };
 
 // Prompt for the API key if it's not saved yet
