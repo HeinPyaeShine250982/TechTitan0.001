@@ -4494,16 +4494,19 @@ button, input, select, textarea, a, [role="button"] {
   gap: 20px;
 }
 
-/* 5. Mobile & Android Responsive Breakpoints */
+/* ==========================================================================
+   TECHTITAN 100% ANDROID ↔ DESKTOP PARITY & ORDERING FIX
+   ========================================================================== */
+
+/* Mobile & Tablet Breakpoint */
 @media screen and (max-width: 992px) {
-  /* Stack side panels and authentication card vertically */
   .auth-container, .login-wrapper, .main-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 12px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 12px !important;
   }
 
-  /* Make main authentication card adapt gracefully to screen width */
   .auth-card, .login-card, .panel {
     width: 100% !important;
     max-width: 440px !important;
@@ -4511,15 +4514,16 @@ button, input, select, textarea, a, [role="button"] {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
   }
 
-  /* Reposition decorative robots around main form */
   .robot-decor, .side-robot {
     scale: 0.85;
     margin: 0 auto;
   }
 }
 
-@media screen and (max-width: 600px) {
-  /* 1. Global Touch & Viewport Safeguards */
+/* Mobile & Android Chrome Fixes */
+@media screen and (max-width: 768px) {
+  
+  /* 1. Global Safeguards & Containers */
   html, body {
     width: 100% !important;
     max-width: 100vw !important;
@@ -4528,36 +4532,41 @@ button, input, select, textarea, a, [role="button"] {
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* 2. Scale down robot speech bubbles and avatars for small phones */
-  .robot-speech, .speech-bubble {
-    font-size: 0.8rem !important;
-    padding: 6px 12px !important;
-    max-width: 90% !important;
-  }
-
-  /* 3. Inputs and Buttons on Android Chrome/Samsung Internet */
-  input,
-  select,
-  textarea,
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    font-size: 16px !important; /* Prevents auto-zoom viewport jump on mobile */
+  .auth-wrapper, .landing-container, .hero-section, main, .store-container, .food-ordering-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 10px !important;
     box-sizing: border-box !important;
   }
 
-  /* 4. Social Login Buttons Grid */
-  .social-login-group, .social-buttons {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
-    width: 100% !important;
+  /* 2. Unhide & Position Navigation Robots */
+  [class*="robot"], .side-menu, .nav-robot, .menu-panel {
+    display: flex !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    width: min(92vw, 380px) !important;
+    margin: 0 auto 10px auto !important;
+    z-index: 10 !important;
   }
 
-  /* 5. Modals & Popups guard - Keeps bottom buttons visible on mobile viewports */
-  .modal, .dialog, .popup-container, .auth-modal, .auth-card {
-    width: 92% !important;
-    max-height: calc(100dvh - 32px) !important; /* Dynamic viewport height prevents cutoff */
+  /* 3. Explicit Mobile Ordering: Robots TOP, Auth Panel BOTTOM */
+  .left-robot, [class*="robot"]:first-of-type {
+    order: 1 !important;
+  }
+
+  .right-robot, [class*="robot"]:last-of-type {
+    order: 2 !important;
+  }
+
+  .auth-card, .auth-modal, .login-card {
+    order: 3 !important; /* Auth Panel renders below both menu robots */
+    width: min(92vw, 420px) !important;
+    max-height: calc(100dvh - 32px) !important;
     overflow-y: auto !important;
     margin: 10px auto !important;
     padding: 16px !important;
@@ -4565,7 +4574,34 @@ button, input, select, textarea, a, [role="button"] {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* 6. Fix AI Chat Bar Layout (Stops input box from shrinking to 0px) */
+  /* 4. Food Cart & Checkout: Top Position Guard */
+  .cart-container, .cart-sidebar, #cart-panel, .checkout-summary, [class*="cart"] {
+    order: -1 !important; /* Moves food cart to the top above food items */
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    margin-bottom: 20px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .store-grid, .product-container, .card-grid, .dashboard-grid {
+    order: 2 !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  /* 5. Inputs & AI Chat Bar Fixes */
+  input, select, textarea,
+  input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 16px !important; /* Prevents auto-zoom viewport jump on mobile */
+    box-sizing: border-box !important;
+  }
+
   .chat-input-bar, .chat-controls, [class*="chat-input"] {
     display: flex !important;
     flex-direction: row !important;
@@ -4575,42 +4611,33 @@ button, input, select, textarea, a, [role="button"] {
     box-sizing: border-box !important;
   }
 
-  .chat-input-bar input,
-  .chat-input-bar textarea,
-  [class*="chat-input"] input,
-  [class*="chat-input"] textarea {
+  .chat-input-bar input, .chat-input-bar textarea,
+  [class*="chat-input"] input, [class*="chat-input"] textarea {
     flex: 1 1 auto !important;
-    min-width: 0 !important; /* Prevents input collapsing to 0px */
+    min-width: 0 !important;
     width: 100% !important;
   }
 
-  .chat-input-bar button,
-  [class*="chat-input"] button {
+  .chat-input-bar button, [class*="chat-input"] button {
     flex: 0 0 auto !important;
     width: auto !important;
     min-width: 60px !important;
   }
 
-  /* 7. Fix Food Store, Clothing Store & Missing Cart Drawer */
-  .store-grid, .product-container, .card-grid, .dashboard-grid {
+  /* 6. Speech Bubbles, Social Buttons & Data Tables */
+  .robot-speech, .speech-bubble {
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+    max-width: 90% !important;
+  }
+
+  .social-login-group, .social-buttons {
     display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
     width: 100% !important;
   }
 
-  .cart-container, .cart-sidebar, #cart-panel, .checkout-summary {
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    display: block !important;
-    margin-top: 20px !important;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15) !important;
-  }
-
-  /* 8. Table Container Horizontal Scrolling Guard */
   .table-responsive, table, .table-container {
     display: block !important;
     width: 100% !important;
