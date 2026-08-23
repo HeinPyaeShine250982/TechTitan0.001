@@ -4519,24 +4519,34 @@ button, input, select, textarea, a, [role="button"] {
 }
 
 @media screen and (max-width: 600px) {
-  /* Scale down robot speech bubbles and avatars for small phones */
+  /* 1. Global Touch & Viewport Safeguards */
+  html, body {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* 2. Scale down robot speech bubbles and avatars for small phones */
   .robot-speech, .speech-bubble {
     font-size: 0.8rem !important;
     padding: 6px 12px !important;
     max-width: 90% !important;
   }
 
-  /* Inputs and Buttons on Android Chrome/Samsung Internet */
+  /* 3. Inputs and Buttons on Android Chrome/Samsung Internet */
+  input,
+  select,
+  textarea,
   input[type="text"],
   input[type="email"],
-  input[type="password"],
-  select,
-  textarea {
-    font-size: 16px !important; /* Prevents auto-zoom on iOS/Android inputs */
-    width: 100% !important;
+  input[type="password"] {
+    font-size: 16px !important; /* Prevents auto-zoom viewport jump on mobile */
+    box-sizing: border-box !important;
   }
 
-  /* Social Login Buttons Grid */
+  /* 4. Social Login Buttons Grid */
   .social-login-group, .social-buttons {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
@@ -4544,55 +4554,68 @@ button, input, select, textarea, a, [role="button"] {
     width: 100% !important;
   }
 
-  /* Modals & Popups guard - Keeps bottom buttons visible on mobile viewports */
+  /* 5. Modals & Popups guard - Keeps bottom buttons visible on mobile viewports */
   .modal, .dialog, .popup-container, .auth-modal, .auth-card {
     width: 92% !important;
-    max-height: 85vh !important;
+    max-height: calc(100dvh - 32px) !important; /* Dynamic viewport height prevents cutoff */
     overflow-y: auto !important;
     margin: 10px auto !important;
-    padding-bottom: 20px !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* Fix AI Chat Bar Layout (Stops input box from shrinking to 0px) */
+  /* 6. Fix AI Chat Bar Layout (Stops input box from shrinking to 0px) */
   .chat-input-bar, .chat-controls, [class*="chat-input"] {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     gap: 8px !important;
     width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .chat-input-bar input,
   .chat-input-bar textarea,
-  [class*="chat-input"] input {
+  [class*="chat-input"] input,
+  [class*="chat-input"] textarea {
     flex: 1 1 auto !important;
-    min-width: 0 !important;
+    min-width: 0 !important; /* Prevents input collapsing to 0px */
+    width: 100% !important;
   }
 
   .chat-input-bar button,
   [class*="chat-input"] button {
     flex: 0 0 auto !important;
     width: auto !important;
+    min-width: 60px !important;
   }
 
-  /* Fix Food Store & Missing Cart Drawer */
-  .store-grid, .product-container, .card-grid {
+  /* 7. Fix Food Store, Clothing Store & Missing Cart Drawer */
+  .store-grid, .product-container, .card-grid, .dashboard-grid {
+    display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 16px !important;
+    width: 100% !important;
   }
 
-  .cart-container, .cart-sidebar, #cart-panel {
+  .cart-container, .cart-sidebar, #cart-panel, .checkout-summary {
     position: relative !important;
+    top: auto !important;
+    right: auto !important;
     width: 100% !important;
+    max-width: 100% !important;
     display: block !important;
     margin-top: 20px !important;
-    right: auto !important;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15) !important;
   }
 
-  /* Table Container Horizontal Scrolling Guard */
-  .table-responsive {
-    width: 100%;
-    overflow-x: auto;
+  /* 8. Table Container Horizontal Scrolling Guard */
+  .table-responsive, table, .table-container {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
     -webkit-overflow-scrolling: touch;
   }
 }
