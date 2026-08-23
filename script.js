@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const moveY = Math.sin(angle) * distance;
     eye.style.transform = `translate(${moveX}px, ${moveY}px)`;
   });
-    // Mini-Robot Hand Waving Click/Tap Event
+    
   // Mini-Robot Hand Waving Click/Tap Event
   const miniHands = document.querySelectorAll(".mini-hand");
 
