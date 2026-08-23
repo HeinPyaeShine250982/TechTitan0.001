@@ -4494,19 +4494,16 @@ button, input, select, textarea, a, [role="button"] {
   gap: 20px;
 }
 
-/* ==========================================================================
-   TECHTITAN 100% ANDROID ↔ DESKTOP PARITY & ORDERING FIX
-   ========================================================================== */
-
-/* Mobile & Tablet Breakpoint */
+/* 5. Mobile & Android Responsive Breakpoints */
 @media screen and (max-width: 992px) {
+  /* Stack side panels and authentication card vertically */
   .auth-container, .login-wrapper, .main-container {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    padding: 12px !important;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
   }
 
+  /* Make main authentication card adapt gracefully to screen width */
   .auth-card, .login-card, .panel {
     width: 100% !important;
     max-width: 440px !important;
@@ -4514,16 +4511,20 @@ button, input, select, textarea, a, [role="button"] {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
   }
 
+  /* Reposition decorative robots around main form */
   .robot-decor, .side-robot {
     scale: 0.85;
     margin: 0 auto;
   }
 }
 
-/* Mobile & Android Chrome Fixes */
-@media screen and (max-width: 768px) {
-  
-  /* 1. Global Safeguards & Containers */
+/* Windows/Desktop Default Guard (Hides mobile password rules on PC) */
+.android-only-rules {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  /* 1. Global Touch & Viewport Safeguards */
   html, body {
     width: 100% !important;
     max-width: 100vw !important;
@@ -4532,51 +4533,112 @@ button, input, select, textarea, a, [role="button"] {
     -webkit-tap-highlight-color: transparent;
   }
 
-  .auth-wrapper, .landing-container, .hero-section, main, .store-container, .food-ordering-wrapper {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    padding: 10px !important;
-    box-sizing: border-box !important;
+  /* 2. Show ONLY ONE Main Robot on Android; Hide Extra Side Robots */
+  [class*="robot"]:not(:first-of-type), .right-robot, .side-menu {
+    display: none !important;
   }
 
-  /* 2. Unhide & Position Navigation Robots */
-  [class*="robot"], .side-menu, .nav-robot, .menu-panel {
+  [class*="robot"]:first-of-type, .main-robot, .nav-robot {
     display: flex !important;
     position: relative !important;
     top: auto !important;
     left: auto !important;
-    right: auto !important;
     transform: none !important;
-    width: min(92vw, 380px) !important;
+    width: min(90vw, 320px) !important;
     margin: 0 auto 10px auto !important;
-    z-index: 10 !important;
-  }
-
-  /* 3. Explicit Mobile Ordering: Robots TOP, Auth Panel BOTTOM */
-  .left-robot, [class*="robot"]:first-of-type {
     order: 1 !important;
   }
 
-  .right-robot, [class*="robot"]:last-of-type {
-    order: 2 !important;
+  /* 3. Scale down speech bubbles */
+  .robot-speech, .speech-bubble {
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+    max-width: 90% !important;
   }
 
-  .auth-card, .auth-modal, .login-card {
-    order: 3 !important; /* Auth Panel renders below both menu robots */
-    width: min(92vw, 420px) !important;
+  /* 4. Inputs and Android Password Helper Text */
+  input,
+  select,
+  textarea,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    font-size: 16px !important; /* Prevents auto-zoom viewport jump on mobile */
+    box-sizing: border-box !important;
+  }
+
+  .android-only-rules {
+    display: block !important;
+    font-size: 0.78rem;
+    color: #a0aec0;
+    margin: 6px 0 12px 0;
+    line-height: 1.4;
+    text-align: left;
+  }
+
+  .android-only-rules span {
+    display: block;
+    transition: color 0.2s ease;
+  }
+
+  .android-only-rules span.valid {
+    color: #48bb78 !important; /* Turns green when requirement is met */
+  }
+
+  /* 5. Social Login Buttons Grid */
+  .social-login-group, .social-buttons {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  /* 6. Modals & Popups guard */
+  .modal, .dialog, .popup-container, .auth-modal, .auth-card {
+    width: 92% !important;
     max-height: calc(100dvh - 32px) !important;
     overflow-y: auto !important;
     margin: 10px auto !important;
     padding: 16px !important;
     box-sizing: border-box !important;
     -webkit-overflow-scrolling: touch;
+    order: 2 !important;
   }
 
-  /* 4. Food Cart & Checkout: Top Position Guard */
+  /* 7. Fix AI Chat Bar Layout */
+  .chat-input-bar, .chat-controls, [class*="chat-input"] {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .chat-input-bar input,
+  .chat-input-bar textarea,
+  [class*="chat-input"] input,
+  [class*="chat-input"] textarea {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .chat-input-bar button,
+  [class*="chat-input"] button {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 60px !important;
+  }
+
+  /* 8. Food Cart Top Position & Store Grid */
+  .store-container, .food-ordering-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
   .cart-container, .cart-sidebar, #cart-panel, .checkout-summary, [class*="cart"] {
-    order: -1 !important; /* Moves food cart to the top above food items */
+    order: -1 !important; /* Forces Food Cart to the top on mobile */
     position: relative !important;
     top: auto !important;
     right: auto !important;
@@ -4584,7 +4646,7 @@ button, input, select, textarea, a, [role="button"] {
     max-width: 100% !important;
     display: block !important;
     margin-bottom: 20px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
   }
 
   .store-grid, .product-container, .card-grid, .dashboard-grid {
@@ -4595,49 +4657,7 @@ button, input, select, textarea, a, [role="button"] {
     width: 100% !important;
   }
 
-  /* 5. Inputs & AI Chat Bar Fixes */
-  input, select, textarea,
-  input[type="text"], input[type="email"], input[type="password"] {
-    font-size: 16px !important; /* Prevents auto-zoom viewport jump on mobile */
-    box-sizing: border-box !important;
-  }
-
-  .chat-input-bar, .chat-controls, [class*="chat-input"] {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 8px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  .chat-input-bar input, .chat-input-bar textarea,
-  [class*="chat-input"] input, [class*="chat-input"] textarea {
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    width: 100% !important;
-  }
-
-  .chat-input-bar button, [class*="chat-input"] button {
-    flex: 0 0 auto !important;
-    width: auto !important;
-    min-width: 60px !important;
-  }
-
-  /* 6. Speech Bubbles, Social Buttons & Data Tables */
-  .robot-speech, .speech-bubble {
-    font-size: 0.8rem !important;
-    padding: 6px 12px !important;
-    max-width: 90% !important;
-  }
-
-  .social-login-group, .social-buttons {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
-    width: 100% !important;
-  }
-
+  /* 9. Table Container Horizontal Scrolling Guard */
   .table-responsive, table, .table-container {
     display: block !important;
     width: 100% !important;

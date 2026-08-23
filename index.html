@@ -183,11 +183,25 @@
               <i class="fa-solid fa-envelope"></i>
               <input type="email" id="email" placeholder="Email Address (@gmail.com)" required autocomplete="off">
             </div>
-            <div class="input-group">
-              <i class="fa-solid fa-lock"></i>
-              <input type="password" id="password" placeholder="Password" required>
-              <i class="fa-solid fa-eye toggle-password" id="toggle-password"></i>
-            </div>
+           <div class="input-group">
+  <i class="fa-solid fa-lock"></i>
+  <input 
+    type="password" 
+    id="password" 
+    placeholder="Password" 
+    required 
+    oninput="validatePassword(this.value)"
+  >
+  <i class="fa-solid fa-eye toggle-password" id="toggle-password"></i>
+</div>
+
+<!-- Password Requirement Rules (Visible only on Android/Mobile screens) -->
+<div class="android-only-rules" id="pass-rules">
+  <span id="rule-length">• At least 8 characters</span>
+  <span id="rule-upper">• At least 1 uppercase letter</span>
+  <span id="rule-number">• At least 1 number</span>
+  <span id="rule-special">• At least 1 special character (!@#$%^&*)</span>
+</div>
             
             <button type="submit" class="btn-tech-pill btn-login">
               <span class="btn-icon">
@@ -1556,6 +1570,18 @@
     <div id="team-modal-body"></div>
   </div>
 </div>
+
+
+<script>
+function validatePassword(val) {
+  if (window.innerWidth <= 600) {
+    document.getElementById('rule-length').classList.toggle('valid', val.length >= 8);
+    document.getElementById('rule-upper').classList.toggle('valid', /[A-Z]/.test(val));
+    document.getElementById('rule-number').classList.toggle('valid', /[0-9]/.test(val));
+    document.getElementById('rule-special').classList.toggle('valid', /[!@#$%^&*(),.?":{}|<>]/.test(val));
+  }
+}
+</script>
 
   <script src="script.js"></script>
   <script src="weather.js"></script>
