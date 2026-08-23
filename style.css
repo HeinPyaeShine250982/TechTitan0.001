@@ -4519,6 +4519,7 @@ button, input, select, textarea, a, [role="button"] {
 }
 
 /* Windows/Desktop Default Guard (Hides mobile password rules on PC) */
+/* Windows/Desktop Default Guard (Hides mobile password rules on PC) */
 .android-only-rules {
   display: none;
 }
@@ -4533,19 +4534,22 @@ button, input, select, textarea, a, [role="button"] {
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* 2. Show ONLY ONE Main Robot on Android; Hide Extra Side Robots */
-  [class*="robot"]:not(:first-of-type), .right-robot, .side-menu {
+  /* 2. Show ONLY ONE Main Robot on Android; Hide Extra Side Menus */
+  .side-menu, .right-robot, .left-robot {
     display: none !important;
   }
 
-  [class*="robot"]:first-of-type, .main-robot, .nav-robot {
+  .robot-avatar, .robot-container, .main-robot, .robot-decor, [class*="robot"]:first-of-type {
     display: flex !important;
     position: relative !important;
     top: auto !important;
     left: auto !important;
+    right: auto !important;
     transform: none !important;
     width: min(90vw, 320px) !important;
     margin: 0 auto 10px auto !important;
+    justify-content: center !important;
+    align-items: center !important;
     order: 1 !important;
   }
 
