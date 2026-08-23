@@ -4544,18 +4544,49 @@ button, input, select, textarea, a, [role="button"] {
     width: 100% !important;
   }
 
-  /* Modals & Popups guard */
-  .modal, .dialog, .popup-container {
+  /* Modals & Popups guard - Keeps bottom buttons visible on mobile viewports */
+  .modal, .dialog, .popup-container, .auth-modal, .auth-card {
     width: 92% !important;
-    max-height: 85dvh !important;
+    max-height: 85vh !important;
     overflow-y: auto !important;
-    margin: 0 auto !important;
+    margin: 10px auto !important;
+    padding-bottom: 20px !important;
   }
 
-  /* Store & Product Grids */
+  /* Fix AI Chat Bar Layout (Stops input box from shrinking to 0px) */
+  .chat-input-bar, .chat-controls, [class*="chat-input"] {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .chat-input-bar input,
+  .chat-input-bar textarea,
+  [class*="chat-input"] input {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .chat-input-bar button,
+  [class*="chat-input"] button {
+    flex: 0 0 auto !important;
+    width: auto !important;
+  }
+
+  /* Fix Food Store & Missing Cart Drawer */
   .store-grid, .product-container, .card-grid {
-    grid-template-columns: 1fr !important; /* Stack 1 card per row on phones */
+    grid-template-columns: 1fr !important;
     gap: 16px !important;
+  }
+
+  .cart-container, .cart-sidebar, #cart-panel {
+    position: relative !important;
+    width: 100% !important;
+    display: block !important;
+    margin-top: 20px !important;
+    right: auto !important;
   }
 
   /* Table Container Horizontal Scrolling Guard */
@@ -4565,37 +4596,3 @@ button, input, select, textarea, a, [role="button"] {
     -webkit-overflow-scrolling: touch;
   }
 }
-
-/* 6. Performance Adjustments for Intro Animation on Mobile */
-@media screen and (max-width: 768px) {
-  .tt-intro-hud {
-    display: none !important; /* Hide secondary HUD tags on small screens */
-  }
-
-  .tt-intro-ambient-glow {
-    width: 320px !important;
-    height: 320px !important;
-    filter: blur(20px) !important; /* Reduces GPU render load */
-  }
-
-  .tt-intro-title {
-    font-size: 1.8rem !important;
-    letter-spacing: 3px !important;
-  }
-
-  .tt-intro-progress-zone {
-    width: 90% !important;
-  }
-}
-
-/* 7. Accessibility Support */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-/* ==========================================================================
-   TECHTITAN PRODUCTION RESPONSIVE & GITHUB PAGES PATCH - END
-   ========================================================================== */
