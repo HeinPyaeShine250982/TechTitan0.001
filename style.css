@@ -4691,7 +4691,7 @@ button[class*="send"] {
     width: 100% !important;
   }
 
-  /* 9. Table Container Horizontal Scrolling Guard */
+  /*fixed  9. Table Container Horizontal Scrolling Guard */
   .table-responsive, table, .table-container {
     display: block !important;
     width: 100% !important;
