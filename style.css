@@ -4567,6 +4567,9 @@ button[class*="send"] {
 /* =========================================================
    MOBILE ONLY OVERRIDES (Max-Width 600px)
    ========================================================= */
+/* =========================================================
+   MOBILE ONLY OVERRIDES (Max-Width 600px)
+   ========================================================= */
 @media screen and (max-width: 600px) {
   /* 1. Global Touch & Viewport Safeguards */
   html, body {
@@ -4652,20 +4655,30 @@ button[class*="send"] {
     order: 2 !important;
   }
 
-  /* 8. Food Cart Top Position & Store Grid */
-  .store-container, .food-ordering-wrapper {
+  /* 8. Carts Top Position & Store Layout (Targeting Shopping, Food & Book Carts) */
+  body, main, .store-container, .food-ordering-wrapper, .bookstore-wrapper, .shop-wrapper {
     display: flex !important;
     flex-direction: column !important;
   }
 
-  .cart-container, .cart-sidebar, #cart-panel, .checkout-summary {
-    order: -1 !important;
+  /* Force Cart Containers directly to the top (Order: -1) */
+  .cart-container, 
+  .cart-sidebar, 
+  #cart-panel, 
+  .checkout-summary,
+  [class*="cart-wrapper"],
+  [class*="shopping-cart"],
+  [class*="food-cart"],
+  [class*="book-cart"] {
+    order: -999 !important; /* Ensures cart always renders first on top */
     position: relative !important;
-    top: auto !important;
+    top: 0 !important;
     right: auto !important;
+    left: auto !important;
     width: 100% !important;
     max-width: 100% !important;
     display: block !important;
+    margin-top: 0 !important;
     margin-bottom: 20px !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
   }
