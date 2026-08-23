@@ -2,12 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta opacity="1.0" charset="UTF-8">
+
+<!-- USE RELATIVE PATHS FOR GITHUB PAGES COMPATIBILITY -->
+<link rel="stylesheet" href="./style.css">
   <title>TechTitan - Interactive Bot Portal</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="weather.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+  <!-- TECHTITAN PREMIUM INTRO - START -->
+<div id="tt-intro-overlay" class="tt-intro-overlay" role="dialog" aria-label="TechTitan AI System Startup">
+  <div class="tt-intro-ambient-glow"></div>
+  <div class="tt-intro-grid-mesh"></div>
+
+  <!-- Skip Action -->
+  <button id="tt-intro-skip" class="tt-intro-skip-btn" type="button" aria-label="Skip Intro">
+    SKIP INTRO &rarr;
+  </button>
+
+  <div class="tt-intro-workspace">
+    <!-- Holographic System HUD Panels -->
+    <div class="tt-intro-hud tt-hud-left">
+  <span class="tt-hud-tag">AI ASSISTANT: READY</span>
+  <span class="tt-hud-tag">ENCRYPTED SESSION</span>
+</div>
+<div class="tt-intro-hud tt-hud-right">
+  <span class="tt-hud-tag">PLATFORM HUB: ACTIVE</span>
+  <span class="tt-hud-tag">WEATHER HUB: LIVE</span>
+</div>
+
+    <!-- Cinematic Hero AI Robot -->
+    <div class="tt-intro-robot-hero">
+      <div class="tt-intro-speech-pod" id="tt-intro-speech">Initializing TechTitan ...</div>
+      <div class="tt-intro-antenna-beam"></div>
+      <div class="tt-intro-robot-head">
+        <div class="tt-intro-antenna-stem">
+          <div class="tt-intro-beacon"></div>
+        </div>
+        <div class="tt-intro-visor">
+          <div class="tt-intro-eye-lens"></div>
+          <div class="tt-intro-eye-lens"></div>
+        </div>
+      </div>
+      <div class="tt-intro-holo-ring"></div>
+    </div>
+
+    <!-- Central Branding -->
+    <div class="tt-intro-brand-block">
+      <h1 class="tt-intro-title">TECHTITAN</h1>
+      <p class="tt-intro-subtitle">ONE PLATFORM. INFINITE POSSIBILITIES.</p>
+    </div>
+
+    <!-- System Initialization Status Tracker -->
+    <div class="tt-intro-status-container" id="tt-intro-status-box">
+      <div class="tt-status-row" id="tt-stat-1"><span>Authentication System</span><span class="tt-status-val">ONLINE</span></div>
+      <div class="tt-status-row" id="tt-stat-2"><span>Digital Marketplace & Stores</span><span class="tt-status-val">ONLINE</span></div>
+      <div class="tt-status-row" id="tt-stat-3"><span>Application Modules</span><span class="tt-status-val">ONLINE</span></div>
+      <div class="tt-status-row" id="tt-stat-4"><span>Security Layer</span><span class="tt-status-val">ONLINE</span></div>
+    </div>
+
+    <!-- Wide Cinematic Progress Indicator -->
+    <div class="tt-intro-progress-zone">
+      <div class="tt-progress-label-row">
+        <span id="tt-progress-msg">INITIALIZING TECHTITAN</span>
+        <span id="tt-progress-num">0%</span>
+      </div>
+      <div class="tt-progress-track">
+        <div id="tt-progress-fill" class="tt-progress-fill"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- TECHTITAN PREMIUM INTRO - END -->
 
   <!-- ================= LOGIN PAGE SECTION ================= -->
   <section id="login-section" class="page-section">
@@ -15,23 +87,32 @@
       
       <!-- Left Side Robot -->
       <div class="side-bot left-bot">
+        <!-- Password Requirement Bubble (Left Side) -->
+        <div id="left-pass-checklist" class="side-pass-checklist hidden">
+          <div class="check-item" id="req-length"><i class="fa-solid fa-xmark cross"></i> At least 8 Characters</div>
+          <div class="check-item" id="req-special"><i class="fa-solid fa-xmark cross"></i> At least 1 Special Character</div>
+        </div>
+
         <div class="bot-head">
           <div class="bot-ear left-ear"></div>
           <div class="bot-ear right-ear"></div>
-          <div class="bot-antenna"></div>
+          <div class="bot-antenna">
+            <div class="side-antenna-tip"></div>
+          </div>
           <div class="bot-eyes">
-            <span class="eye side-eye-left"></span>
-            <span class="eye side-eye-right"></span>
+            <span class="eye side-eye-left"><span class="pupil-shine"></span></span>
+            <span class="eye side-eye-right"><span class="pupil-shine"></span></span>
           </div>
         </div>
         <div class="bot-body">
+          <div class="heart-core side-core"></div>
           <div class="ticker-screen">
             <div class="ticker-track">
               <div class="ticker-item"><i class="fa-solid fa-calculator"></i> Calculator & Tools</div>
               <div class="ticker-item"><i class="fa-solid fa-cloud-sun"></i> Live Weather Hub</div>
               <div class="ticker-item"><i class="fa-solid fa-book"></i> Digital Bookstore</div>
               <div class="ticker-item"><i class="fa-solid fa-shirt"></i> Clothing Store</div>
-              <!-- Duplicate set for seamless continuous scrolling -->
+              <!-- Duplicate set for continuous scrolling -->
               <div class="ticker-item"><i class="fa-solid fa-calculator"></i> Calculator & Tools</div>
               <div class="ticker-item"><i class="fa-solid fa-cloud-sun"></i> Live Weather Hub</div>
               <div class="ticker-item"><i class="fa-solid fa-book"></i> Digital Bookstore</div>
@@ -55,7 +136,10 @@
 
         <!-- Main Center Robot -->
         <div class="robot-character mood-neutral" id="main-robot">
+          <div class="hover-aura"></div>
+
           <div class="robot-antenna">
+            <div class="antenna-ring"></div>
             <div class="antenna-tip"></div>
           </div>
           
@@ -63,32 +147,41 @@
             <div class="main-ear left-ear"></div>
             <div class="main-ear right-ear"></div>
             <div class="robot-face">
+              <div class="robot-blush left-blush"></div>
+              <div class="robot-blush right-blush"></div>
               <div class="eye-wrapper">
-                <div class="robot-eye left-eye"></div>
-                <div class="robot-eye right-eye"></div>
+                <div class="robot-eye left-eye">
+                  <span class="pupil-shine"></span>
+                </div>
+                <div class="robot-eye right-eye">
+                  <span class="pupil-shine"></span>
+                </div>
               </div>
               <div class="robot-mouth" id="robot-mouth"></div>
             </div>
           </div>
 
+          <div class="robot-body-stub">
+            <div class="heart-core"></div>
+          </div>
+
           <div class="robot-hands">
-            <div class="hand left-hand"></div>
-            <div class="hand right-hand"></div>
+            <div class="hand left-hand" id="left-hand"></div>
+            <div class="hand right-hand" id="right-hand"></div>
           </div>
         </div>
 
-        <!-- Login Form Card -->
         <!-- Login Form Card -->
         <div class="login-card">
           <h2>Authentication Panel</h2>
           <form id="login-form">
             <div class="input-group">
               <i class="fa-solid fa-user"></i>
-              <input type="text" id="username" placeholder="Username" required autocomplete="off">
+              <input type="text" id="username" placeholder="Username (A-Z only)" required autocomplete="off">
             </div>
             <div class="input-group">
               <i class="fa-solid fa-envelope"></i>
-              <input type="email" id="email" placeholder="Email Address" required autocomplete="off">
+              <input type="email" id="email" placeholder="Email Address (@gmail.com)" required autocomplete="off">
             </div>
             <div class="input-group">
               <i class="fa-solid fa-lock"></i>
@@ -96,7 +189,6 @@
               <i class="fa-solid fa-eye toggle-password" id="toggle-password"></i>
             </div>
             
-            <!-- NEW PILL GRADIENT LOGIN BUTTON -->
             <button type="submit" class="btn-tech-pill btn-login">
               <span class="btn-icon">
                 <i class="fa-solid fa-arrow-right-to-bracket"></i>
@@ -106,7 +198,6 @@
             </button>
           </form>
 
-          <!-- DIVIDER & SOCIAL LOGIN GRID INSIDE CARD -->
           <hr class="form-divider" />
 
           <div class="social-login-container">
@@ -167,23 +258,32 @@
 
       <!-- Right Side Robot -->
       <div class="side-bot right-bot">
+        <!-- Password Requirement Bubble (Right Side) -->
+        <div id="right-pass-checklist" class="side-pass-checklist hidden">
+          <div class="check-item" id="req-uppercase"><i class="fa-solid fa-xmark cross"></i> At least 1 Upper Case</div>
+          <div class="check-item" id="req-number"><i class="fa-solid fa-xmark cross"></i> At least 1 Number</div>
+        </div>
+
         <div class="bot-head">
           <div class="bot-ear left-ear"></div>
           <div class="bot-ear right-ear"></div>
-          <div class="bot-antenna"></div>
+          <div class="bot-antenna">
+            <div class="side-antenna-tip"></div>
+          </div>
           <div class="bot-eyes">
-            <span class="eye side-eye-left"></span>
-            <span class="eye side-eye-right"></span>
+            <span class="eye side-eye-left"><span class="pupil-shine"></span></span>
+            <span class="eye side-eye-right"><span class="pupil-shine"></span></span>
           </div>
         </div>
         <div class="bot-body">
+          <div class="heart-core side-core"></div>
           <div class="ticker-screen">
             <div class="ticker-track">
               <div class="ticker-item"><i class="fa-solid fa-utensils"></i> Food Ordering</div>
               <div class="ticker-item"><i class="fa-solid fa-wallet"></i> Money Manager</div>
               <div class="ticker-item"><i class="fa-solid fa-comments"></i> AI Assistant Chat</div>
               <div class="ticker-item"><i class="fa-solid fa-microchip"></i> System Settings</div>
-              <!-- Duplicate set for seamless continuous scrolling -->
+              <!-- Duplicate set for continuous scrolling -->
               <div class="ticker-item"><i class="fa-solid fa-utensils"></i> Food Ordering</div>
               <div class="ticker-item"><i class="fa-solid fa-wallet"></i> Money Manager</div>
               <div class="ticker-item"><i class="fa-solid fa-comments"></i> AI Assistant Chat</div>
@@ -200,21 +300,43 @@
     </div>
   </section>
 
-
   <!-- ================= HOME PAGE DASHBOARD ================= -->
   <div id="app-dashboard" class="hidden">
-    
     <header class="navbar">
       <div class="nav-logo">
-        <i class="fa-solid fa-robot"></i> TechTitan Portal
+  <!-- Miniature Animated Robot -->
+  <div class="mini-robot-icon" id="header-mini-robot">
+  <div class="mini-robot-antenna">
+    <div class="mini-antenna-ring"></div>
+    <div class="mini-antenna-tip"></div>
+  </div>
+  
+  <div class="mini-robot-head">
+    <div class="mini-ear left-ear"></div>
+    <div class="mini-ear right-ear"></div>
+    <div class="mini-robot-face">
+      <div class="mini-robot-blush left-blush"></div>
+      <div class="mini-robot-blush right-blush"></div>
+      <div class="mini-eye-wrapper">
+        <div class="mini-robot-eye left-eye"><span class="mini-pupil-shine"></span></div>
+        <div class="mini-robot-eye right-eye"><span class="mini-pupil-shine"></span></div>
       </div>
+      <div class="mini-robot-mouth"></div>
+    </div>
+  </div>
+
+  <!-- Interactive Hands -->
+  <div class="mini-hand left-hand" title="Tap to wave!"></div>
+  <div class="mini-hand right-hand" title="Tap to wave!"></div>
+</div>
+  <span>TechTitan Portal</span>
+</div>
       <nav class="nav-links">
         <button class="nav-btn active" data-tab="home-tab"><i class="fa-solid fa-house"></i> Home</button>
         <button class="nav-btn" data-tab="about-tab"><i class="fa-solid fa-circle-info"></i> About</button>
         <button class="nav-btn" data-tab="contact-tab"><i class="fa-solid fa-envelope"></i> Contact</button>
       </nav>
       
-      <!-- NEW PILL GRADIENT LOGOUT BUTTON -->
       <button id="logout-btn" class="btn-tech-pill btn-logout">
         <span class="btn-icon">
           <i class="fa-solid fa-right-from-bracket"></i>
@@ -225,12 +347,11 @@
     </header>
 
     <main class="content-area">
-
       <!-- HOME TAB -->
       <section id="home-tab" class="tab-content active-tab">
         <div class="welcome-header">
           <h1>Welcome, <span id="user-display-name">TechTitan</span>!</h1>
-          <p>Access your modules from the dashboard below.</p>
+          <p>Access your needs from the dashboard below(All In One).</p>
         </div>
 
         <div class="modules-grid">
@@ -240,6 +361,22 @@
             <p>Order food and track menu items.</p>
             <button class="module-btn" onclick="openModule('Food Ordering')">Launch</button>
           </div>
+        
+        <div class="module-card">
+            <div class="module-icon"><i class="fa-solid fa-shirt"></i></div>
+            <h3>Clothing Store</h3>
+            <p>Explore fashion trends and catalog items.</p>
+            <button class="module-btn" onclick="openModule('Clothing Store')">Launch</button>
+          </div>
+  
+        <div class="module-card">
+            <div class="module-icon"><i class="fa-solid fa-book"></i></div>
+            <h3>Digital Book Store</h3>
+            <p>Browse digital books, filter by genre, and purchase titles.</p>
+            <button class="module-btn" onclick="openModule('Digital Bookstore')">Launch</button>
+          </div>
+
+
 
           <div class="module-card">
             <div class="module-icon"><i class="fa-solid fa-wallet"></i></div>
@@ -269,48 +406,1161 @@
             <button class="module-btn" onclick="openModule('Live Weather Hub')">Launch</button>
           </div>
 
-          <div class="module-card">
-            <div class="module-icon"><i class="fa-solid fa-book-open"></i></div>
-            <h3>Digital Bookstore</h3>
-            <p>E-library and book recommendation engine.</p>
-            <button class="module-btn" onclick="openModule('Digital Bookstore')">Launch</button>
-          </div>
+          
 
-          <div class="module-card">
-            <div class="module-icon"><i class="fa-solid fa-shirt"></i></div>
-            <h3>Clothing Store</h3>
-            <p>Explore fashion trends and catalog items.</p>
-            <button class="module-btn" onclick="openModule('Clothing Store')">Launch</button>
-          </div>
+          <!-- Disaster Alert System Module Card -->
+              <div class="module-card">
+                  <div class="module-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                  <h3>Disaster Alert System</h3>
+                  <p>Real-time global disaster alerts, earthquakes, cyclones, floods and wildfires.</p>
+                  <button class="module-btn" onclick="openModule('Disaster Alert System')">Launch</button>
+              </div>
+          
+         
+          
+
+          
+
         </div>
       </section>
+
+    
+
 
       <!-- ABOUT TAB -->
-      <section id="about-tab" class="tab-content hidden-tab">
-        <div class="info-card">
-          <h2><i class="fa-solid fa-robot"></i> About TechTitan System</h2>
-          <p>This application features automated bot security interfaces along with module routing for seamless access across services.</p>
-        </div>
-      </section>
+<section id="about-tab" class="tab-content hidden-tab">
+  <div class="about-container">
+    
+    <!-- 1. MAIN ABOUT CARD -->
+    <div class="info-card about-hero-card">
+      <h2><i class="fa-solid fa-robot"></i> About TechTitan Portal</h2>
+      <p class="about-lead">
+        TechTitan Portal is an integrated web-based platform developed as a university group project to bring multiple useful digital tools and services together in one convenient system.
+      </p>
+      <p class="about-subtext">
+        Designed with a focus on usability, accessibility, and modular architecture, the system provides a seamless user experience while leveraging modern web development practices.
+      </p>
+    </div>
 
-      <!-- CONTACT TAB -->
+    <!-- 2. OUR PURPOSE -->
+    <div class="about-section">
+      <div class="section-header">
+        <h3><i class="fa-solid fa-bullseye"></i> Our Purpose</h3>
+        <p>Our goal is to provide users with a convenient digital environment where multiple useful tools and services can be accessed through a single platform.</p>
+      </div>
+      <div class="purpose-grid">
+        <div class="purpose-card">
+          <div class="purpose-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <h4>One Platform</h4>
+          <p>Access multiple tools and services from one place.</p>
+        </div>
+        <div class="purpose-card">
+          <div class="purpose-icon"><i class="fa-solid fa-sliders"></i></div>
+          <h4>Easy to Use</h4>
+          <p>Simple and intuitive interfaces designed for everyday users.</p>
+        </div>
+        <div class="purpose-card">
+          <div class="purpose-icon"><i class="fa-solid fa-cubes"></i></div>
+          <h4>Modular System</h4>
+          <p>Individual modules work together while remaining organized and maintainable.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. PLATFORM FEATURES -->
+    <div class="about-section">
+      <div class="section-header">
+        <h3><i class="fa-solid fa-shapes"></i> What TechTitan Offers</h3>
+      </div>
+      <div class="features-grid">
+  <!-- 1. Food Ordering -->
+  <div class="feature-card">
+    <i class="fa-solid fa-utensils feature-icon"></i>
+    <div class="feature-info">
+      <h4>Food Ordering</h4>
+      <p>Order food and track menu items.</p>
+    </div>
+  </div>
+
+  <!-- 2. Clothing Store -->
+  <div class="feature-card">
+    <i class="fa-solid fa-shirt feature-icon"></i>
+    <div class="feature-info">
+      <h4>Clothing Store</h4>
+      <p>Explore fashion trends and catalog items.</p>
+    </div>
+  </div>
+
+  <!-- 3. Digital Book Store -->
+  <div class="feature-card">
+    <i class="fa-solid fa-book-open feature-icon"></i>
+    <div class="feature-info">
+      <h4>Digital Book Store</h4>
+      <p>Browse digital books, filter by genre, and purchase titles.</p>
+    </div>
+  </div>
+
+  <!-- 4. Money Manager -->
+  <div class="feature-card">
+    <i class="fa-solid fa-wallet feature-icon"></i>
+    <div class="feature-info">
+      <h4>Money Manager</h4>
+      <p>Track expenses and budget targets.</p>
+    </div>
+  </div>
+
+  <!-- 5. AI Assistant Chat -->
+  <div class="feature-card">
+    <i class="fa-solid fa-comments feature-icon"></i>
+    <div class="feature-info">
+      <h4>AI Assistant Chat</h4>
+      <p>Live interactive AI assistance.</p>
+    </div>
+  </div>
+
+  <!-- 6. Calculator & Tools -->
+  <div class="feature-card">
+    <i class="fa-solid fa-calculator feature-icon"></i>
+    <div class="feature-info">
+      <h4>Calculator & Tools</h4>
+      <p>Mathematical calculations and conversions.</p>
+    </div>
+  </div>
+
+  <!-- 7. Live Weather Hub -->
+  <div class="feature-card">
+    <i class="fa-solid fa-cloud-sun feature-icon"></i>
+    <div class="feature-info">
+      <h4>Live Weather Hub</h4>
+      <p>Real-time climate forecasts and metrics.</p>
+    </div>
+  </div>
+</div>
+
+    <!-- 4. OUR TEAM -->
+    <div class="about-section">
+      <div class="team-section-container">
+        <div class="team-header">
+          <h2><i class="fa-solid fa-users"></i> Meet Our Team</h2>
+          <p>Eight members working together to build TechTitan Portal.</p>
+        </div>
+        <div id="team-grid" class="team-grid"></div>
+      </div>
+    </div>
+
+    <!-- 5. TECHNOLOGY STACK -->
+    <div class="about-section">
+      <div class="section-header">
+        <h3><i class="fa-solid fa-microchip"></i> Technologies Behind TechTitan</h3>
+      </div>
+      <div class="tech-stack-flex">
+        <div class="tech-badge"><i class="fa-brands fa-html5"></i> HTML5</div>
+        <div class="tech-badge"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+        <div class="tech-badge"><i class="fa-brands fa-js"></i> JavaScript</div>
+        
+      </div>
+    </div>
+
+    <!-- 6. DEVELOPMENT APPROACH -->
+    <div class="about-section">
+      <div class="section-header">
+        <h3><i class="fa-solid fa-diagram-project"></i> How We Built It</h3>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <span>Planning</span>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <span>Design</span>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <span>Development</span>
+        </div>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <span>Integration</span>
+        </div>
+        <div class="process-step">
+          <div class="step-num">5</div>
+          <span>Testing</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. FINAL MESSAGE -->
+    <div class="info-card final-card">
+      <h4><i class="fa-solid fa-rocket"></i> Built Together. Designed with Purpose.</h4>
+      <p>TechTitan Portal represents our teamwork, creativity, and practical application of software development concepts as we work together to create a useful and accessible digital platform.</p>
+    </div>
+
+  </div>
+</section>
+
+     <!-- CONTACT TAB -->
       <section id="contact-tab" class="tab-content hidden-tab">
         <div class="info-card">
           <h2><i class="fa-solid fa-paper-plane"></i> Contact Support</h2>
-          <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent!');">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea rows="4" placeholder="How can we help?" required></textarea>
-            <button type="submit" class="module-btn">Send Message</button>
+          <form class="contact-form" id="contact-form" onsubmit="handleContactSubmit(event)">
+            <input type="text" id="contact-name" placeholder="Your Name" required>
+            <input type="email" id="contact-email" placeholder="Your Email" required>
+            <textarea rows="4" id="contact-message" placeholder="How can we help?" required></textarea>
+            <button type="submit" class="module-btn">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
           </form>
         </div>
       </section>
+<!-- ================= CALCULATOR & TOOLS TAB ================= -->
+<section id="calculator-tab" class="tab-content hidden-tab">
+  <div class="module-header-bar">
+    <button class="btn-back" onclick="closeModule()"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button>
+    <h2><i class="fa-solid fa-calculator"></i> Calculator & Tools</h2>
+  </div>
+
+  <div class="subtab-nav">
+    <button class="sub-btn active" onclick="switchCalcSubtab('std-calc')">Standard</button>
+    <button class="sub-btn" onclick="switchCalcSubtab('sci-calc')">Scientific</button>
+    <button class="sub-btn" onclick="switchCalcSubtab('bmi-calc')">BMI</button>
+    <button class="sub-btn" onclick="switchCalcSubtab('age-calc')">Age</button>
+    <button class="sub-btn" onclick="switchCalcSubtab('unit-calc')">Unit Converter</button>
+    <button class="sub-btn" onclick="switchCalcSubtab('curr-calc')">Currency Converter</button>
+    <button class="sub-btn" onclick="switchCalcSubtab('pct-calc')">Percentage</button>
+  </div>
+
+  <div class="tool-container">
+    <!-- Standard Calculator -->
+    <div id="std-calc" class="calc-box active-calc">
+      <input type="text" id="std-display" class="calc-display" readonly value="0">
+      <div class="calc-grid">
+        <button class="btn-calc btn-action" onclick="stdClear()">C</button>
+        <button class="btn-calc btn-action" onclick="stdBackspace()">⌫</button>
+        <button class="btn-calc btn-op" onclick="stdAppend('%')">%</button>
+        <button class="btn-calc btn-op" onclick="stdAppend('/')">÷</button>
+        <button class="btn-calc" onclick="stdAppend('7')">7</button>
+        <button class="btn-calc" onclick="stdAppend('8')">8</button>
+        <button class="btn-calc" onclick="stdAppend('9')">9</button>
+        <button class="btn-calc btn-op" onclick="stdAppend('*')">×</button>
+        <button class="btn-calc" onclick="stdAppend('4')">4</button>
+        <button class="btn-calc" onclick="stdAppend('5')">5</button>
+        <button class="btn-calc" onclick="stdAppend('6')">6</button>
+        <button class="btn-calc btn-op" onclick="stdAppend('-')">-</button>
+        <button class="btn-calc" onclick="stdAppend('1')">1</button>
+        <button class="btn-calc" onclick="stdAppend('2')">2</button>
+        <button class="btn-calc" onclick="stdAppend('3')">3</button>
+        <button class="btn-calc btn-op" onclick="stdAppend('+')">+</button>
+        <button class="btn-calc btn-zero" onclick="stdAppend('0')">0</button>
+        <button class="btn-calc" onclick="stdAppend('.')">.</button>
+        <button class="btn-calc btn-equals" onclick="stdCalculate()">=</button>
+      </div>
+    </div>
+
+    <!-- Scientific Calculator -->
+    <div id="sci-calc" class="calc-box hidden-calc">
+      <input type="text" id="sci-display" class="calc-display" readonly value="0">
+      <div class="calc-grid sci-grid">
+        <button class="btn-calc btn-op" onclick="sciFunc('sin')">sin</button>
+        <button class="btn-calc btn-op" onclick="sciFunc('cos')">cos</button>
+        <button class="btn-calc btn-op" onclick="sciFunc('tan')">tan</button>
+        <button class="btn-calc btn-action" onclick="sciClear()">C</button>
+        <button class="btn-calc btn-op" onclick="sciFunc('sqrt')">√</button>
+        <button class="btn-calc btn-op" onclick="sciFunc('pow')">x²</button>
+        <button class="btn-calc btn-op" onclick="sciFunc('log')">log</button>
+        <button class="btn-calc btn-op" onclick="stdAppendSci('/')">÷</button>
+        <button class="btn-calc" onclick="stdAppendSci('7')">7</button>
+        <button class="btn-calc" onclick="stdAppendSci('8')">8</button>
+        <button class="btn-calc" onclick="stdAppendSci('9')">9</button>
+        <button class="btn-calc btn-op" onclick="stdAppendSci('*')">×</button>
+        <button class="btn-calc" onclick="stdAppendSci('4')">4</button>
+        <button class="btn-calc" onclick="stdAppendSci('5')">5</button>
+        <button class="btn-calc" onclick="stdAppendSci('6')">6</button>
+        <button class="btn-calc btn-op" onclick="stdAppendSci('-')">-</button>
+        <button class="btn-calc" onclick="stdAppendSci('1')">1</button>
+        <button class="btn-calc" onclick="stdAppendSci('2')">2</button>
+        <button class="btn-calc" onclick="stdAppendSci('3')">3</button>
+        <button class="btn-calc btn-op" onclick="stdAppendSci('+')">+</button>
+        <button class="btn-calc btn-zero" onclick="stdAppendSci('0')">0</button>
+        <button class="btn-calc" onclick="stdAppendSci('.')">.</button>
+        <button class="btn-calc btn-equals" onclick="sciCalculate()">=</button>
+      </div>
+    </div>
+
+    <!-- BMI Calculator -->
+    <div id="bmi-calc" class="calc-box hidden-calc form-tool">
+      <h3>BMI Calculator</h3>
+      <div class="tool-input-group">
+        <label>Weight (kg):</label>
+        <input type="number" id="bmi-weight" placeholder="e.g. 70">
+      </div>
+      <div class="tool-input-group">
+        <label>Height (cm):</label>
+        <input type="number" id="bmi-height" placeholder="e.g. 175">
+      </div>
+      <button class="module-btn" onclick="calculateBMI()">Calculate BMI</button>
+      <div id="bmi-result" class="tool-result"></div>
+    </div>
+
+    <!-- Age Calculator -->
+    <div id="age-calc" class="calc-box hidden-calc form-tool">
+      <h3>Age Calculator</h3>
+      <div class="tool-input-group">
+        <label>Date of Birth:</label>
+        <input type="date" id="age-dob">
+      </div>
+      <button class="module-btn" onclick="calculateAge()">Calculate Age</button>
+      <div id="age-result" class="tool-result"></div>
+    </div>
+
+    <!-- Unit Converter -->
+    <div id="unit-calc" class="calc-box hidden-calc form-tool">
+      <h3>Unit Converter (Length)</h3>
+      <div class="tool-input-group">
+        <label>Value:</label>
+        <input type="number" id="unit-val" value="1">
+      </div>
+      <div class="tool-input-group">
+        <label>From:</label>
+        <select id="unit-from">
+          <option value="m">Meters (m)</option>
+          <option value="km">Kilometers (km)</option>
+          <option value="cm">Centimeters (cm)</option>
+          <option value="ft">Feet (ft)</option>
+        </select>
+      </div>
+      <div class="tool-input-group">
+        <label>To:</label>
+        <select id="unit-to">
+          <option value="km">Kilometers (km)</option>
+          <option value="m">Meters (m)</option>
+          <option value="cm">Centimeters (cm)</option>
+          <option value="ft">Feet (ft)</option>
+        </select>
+      </div>
+      <button class="module-btn" onclick="convertUnit()">Convert</button>
+      <div id="unit-result" class="tool-result"></div>
+    </div>
+
+    <!-- Currency Converter -->
+    <div id="curr-calc" class="calc-box hidden-calc form-tool">
+      <h3>Currency Converter (Local Data)</h3>
+      <div class="tool-input-group">
+        <label>Amount:</label>
+        <input type="number" id="curr-amt" value="100">
+      </div>
+      <div class="tool-input-group">
+        <label>From:</label>
+        <select id="curr-from">
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="JPY">JPY (¥)</option>
+          <option value="MMK">MMK (kyats)</option>
+        </select>
+      </div>
+      <div class="tool-input-group">
+        <label>To:</label>
+        <select id="curr-to">
+          <option value="EUR">EUR (€)</option>
+          <option value="USD">USD ($)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="JPY">JPY (¥)</option>
+          <option value="MMK">MMK (kyats)</option>
+        </select>
+      </div>
+      <button class="module-btn" onclick="convertCurrency()">Convert</button>
+      <div id="curr-result" class="tool-result"></div>
+    </div>
+
+    <!-- Percentage Calculator -->
+    <div id="pct-calc" class="calc-box hidden-calc form-tool">
+      <h3>Percentage Calculator</h3>
+      <div class="tool-input-group">
+        <label>What is</label>
+        <input type="number" id="pct-val" placeholder="%">
+      </div>
+      <div class="tool-input-group">
+        <label>% of</label>
+        <input type="number" id="pct-total" placeholder="Total Value">
+      </div>
+      <button class="module-btn" onclick="calculatePercentage()">Calculate</button>
+      <div id="pct-result" class="tool-result"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LIVE WEATHER HUB MODULE ================= -->
+<section id="weather-tab" class="tab-content hidden-tab">
+  <div class="module-header-bar">
+    <button class="btn-back" onclick="closeModule()"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button>
+    <h2><i class="fa-solid fa-cloud-sun"></i> Live Weather Hub</h2>
+  </div>
+
+  <div class="weather-container">
+    <!-- Top Search & Actions Bar -->
+    <div class="weather-search-bar">
+      <div class="weather-search-input-group">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="weather-city-input" placeholder="Search city worldwide (e.g. London, Tokyo, Yangon)..." autocomplete="off" />
+        <button id="weather-search-btn" class="weather-btn-primary">Search</button>
+      </div>
+      <button id="weather-geo-btn" class="weather-btn-secondary" title="Use Current Location">
+        <i class="fa-solid fa-location-crosshairs"></i> <span>My Location</span>
+      </button>
+    </div>
+
+    <!-- Error/Notice Bar -->
+    <div id="weather-error-msg" class="weather-alert hidden"></div>
+
+    <!-- Main Current Weather Hero Dashboard -->
+    <div class="weather-hero-card" id="weather-hero-card">
+      <div class="hero-main-info">
+        <div class="hero-location">
+          <h2 id="weather-city-name">Loading...</h2>
+          <span id="weather-country-code" class="country-badge">--</span>
+          <p id="weather-date-time" class="hero-date">--</p>
+        </div>
+        <div class="hero-temp-box">
+          <img id="weather-main-icon" src="" alt="Weather Icon" class="hero-weather-icon" />
+          <div class="hero-degrees">
+            <span id="weather-current-temp">--</span><span class="deg-unit">°C</span>
+          </div>
+          <div class="hero-desc-group">
+            <h3 id="weather-condition-text">--</h3>
+            <p>Feels like <span id="weather-feels-like">--</span>°C</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="hero-quick-stats">
+        <div class="stat-card">
+          <i class="fa-solid fa-droplet"></i>
+          <div>
+            <span>Humidity</span>
+            <strong id="weather-humidity">--%</strong>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-wind"></i>
+          <div>
+            <span>Wind Speed</span>
+            <strong id="weather-wind-speed">-- km/h</strong>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-compass"></i>
+          <div>
+            <span>Wind Direction</span>
+            <strong id="weather-wind-dir">--</strong>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-gauge-high"></i>
+          <div>
+            <span>Pressure</span>
+            <strong id="weather-pressure">-- hPa</strong>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-eye"></i>
+          <div>
+            <span>Visibility</span>
+            <strong id="weather-visibility">-- km</strong>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-sun"></i>
+          <div>
+            <span>UV Index</span>
+            <strong id="weather-uv-index">--</strong>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-sun-plant-wilt"></i>
+          <div>
+            <span>Air Quality (AQI)</span>
+            <strong id="weather-aqi">--</strong>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-stopwatch"></i>
+          <div>
+            <span>Sun Times</span>
+            <small>🌅 <span id="weather-sunrise">--:--</span> | 🌇 <span id="weather-sunset">--:--</span></small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hourly Forecast (24-Hour Slider) -->
+    <div class="weather-section-box">
+      <h3><i class="fa-solid fa-clock"></i> 24-Hour Forecast</h3>
+      <div id="weather-hourly-container" class="hourly-slider"></div>
+    </div>
+
+    <!-- 7-Day Extended Forecast -->
+    <div class="weather-section-box">
+      <h3><i class="fa-solid fa-calendar-days"></i> 7-Day Forecast</h3>
+      <div id="weather-daily-container" class="daily-forecast-grid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DISASTER ALERT SYSTEM MODULE ================= -->
+<section id="disaster-tab" class="tab-content hidden-tab">
+    <div class="disaster-container">
+        <!-- Top Navigation & Live Header -->
+        <div class="disaster-header">
+            <div class="da-header-left">
+                <button class="btn-back" onclick="closeModule()"><i class="fa-solid fa-arrow-left">
+                </i> Back to Dashboard
+                </button>
+                <div class="da-title-group">
+                    <h2><i class="fa-solid fa-triangle-exclamation da-warning-icon"></i> Disaster Alert System</h2>
+                    <div class="da-live-bar">
+                        <span id="da-status-badge" class="da-badge da-badge-offline">● OFFLINE</span>
+                        <span id="da-last-updated" class="da-timestamp">Last updated: Never</span>
+                    </div>
+                </div>
+            </div>
+            <div class="da-header-right">
+                <button class="btn-action" id="da-refresh-btn" onclick="fetchDisasterData(true)">
+            <i class="fa-solid fa-rotate-right"></i> Refresh Alerts
+            </button>
+            </div>
+        </div>
+
+        <!-- System Banner Notification -->
+        <div id="da-banner" class="da-banner hidden"></div>
+
+        <!-- Summary Stats Grid -->
+        <div class="da-summary-grid">
+            <div class="da-summary-card">
+                <div class="da-card-label"><i class="fa-solid fa-bell"></i> ACTIVE ALERTS</div>
+                <div class="da-card-value" id="da-stat-active">0</div>
+                <div class="da-card-sub">Currently displayed</div>
+            </div>
+            <div class="da-summary-card da-stat-critical">
+                <div class="da-card-label"><i class="fa-solid fa-circle-exclamation"></i> CRITICAL</div>
+                <div class="da-card-value" id="da-stat-critical">0</div>
+                <div class="da-card-sub">Immediate severe threat</div>
+            </div>
+            <div class="da-summary-card da-stat-high">
+                <div class="da-card-label"><i class="fa-solid fa-triangle-exclamation"></i> HIGH RISK</div>
+                <div class="da-card-value" id="da-stat-high">0</div>
+                <div class="da-card-sub">Major events</div>
+            </div>
+            <div class="da-summary-card">
+                <div class="da-card-label"><i class="fa-solid fa-earth-americas"></i> RECENT EVENTS</div>
+                <div class="da-card-value" id="da-stat-recent">0</div>
+                <div class="da-card-sub">Worldwide events logged</div>
+            </div>
+        </div>
+
+        <!-- Map & Filter Container -->
+        <div class="da-main-layout">
+            <!-- Filter Bar -->
+            <div class="da-filter-bar">
+                <div class="da-filter-group">
+                    <select id="da-filter-type" class="da-select" onchange="filterDisasterAlerts()">
+                        <option value="All">All Disaster Types</option>
+                        <option value="Earthquake">Earthquakes</option>
+                        <option value="Tropical Cyclone">Cyclones / Typhoons</option>
+                        <option value="Flood">Floods</option>
+                        <option value="Wildfire">Wildfires</option>
+                        <option value="Volcano">Volcanoes</option>
+                        <option value="Drought">Droughts</option>
+                        <option value="Other">Other Events</option>
+                    </select>
+
+                    <select id="da-filter-severity" class="da-select" onchange="filterDisasterAlerts()">
+                        <option value="All">All Severities</option>
+                        <option value="Red">Red / Critical</option>
+                        <option value="Orange">Orange / High</option>
+                        <option value="Yellow">Yellow / Moderate</option>
+                        <option value="Green">Green / Low</option>
+                    </select>
+
+                    <select id="da-filter-region" class="da-select" onchange="filterDisasterAlerts()">
+                        <option value="Worldwide">Worldwide</option>
+                        <option value="Myanmar">🇲🇲 Myanmar Only</option>
+                        <option value="Asia">Asia Region</option>
+                        <option value="SEAsia">Southeast Asia</option>
+                        <option value="Nearby">📍 Nearby (Location Required)</option>
+                    </select>
+
+                    <button class="btn btn-secondary da-loc-btn" id="da-loc-btn" onclick="requestUserLocation()">
+                        <i class="fa-solid fa-location-crosshairs"></i> Use My Location
+                    </button>
+                </div>
+
+                <div class="da-search-group">
+                    <input type="text" id="da-search-input" class="da-input" placeholder="Search country, location, title..." oninput="filterDisasterAlerts()">
+                </div>
+            </div>
+
+            <!-- Leaflet Interactive Map -->
+            <div class="da-map-wrapper">
+                <div id="da-map" class="da-map"></div>
+            </div>
+
+            <!-- Disaster Feed Output -->
+            <div class="da-feed-header">
+                <h3><i class="fa-solid fa-rss"></i> Live Incident Feed</h3>
+                <div id="da-location-badge" class="da-location-badge">📍 Global View</div>
+            </div>
+
+            <div id="da-cards-container" class="da-cards-grid">
+                <!-- Dynamic cards or skeleton placeholders inserted here -->
+            </div>
+
+            <!-- Data Sources & Disclaimer Footer -->
+            <div class="da-footer-info">
+                <div class="da-attribution">
+                    <strong>Data Sources:</strong>
+                    <span>GDACS (Global Disaster Alert and Coordination System)</span> | 
+                    <span>USGS (United States Geological Survey)</span>
+                </div>
+                <div class="da-disclaimer">
+                    ⚠ Disaster information is provided for situational awareness only. Always follow directives from official local authorities and emergency services.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- ================= FOOD ORDERING MODULE ================= -->
+<section id="food-tab" class="tab-content hidden-tab">
+  <div class="module-header-bar">
+    <button class="btn-back" onclick="closeModule()"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button>
+    <h2><i class="fa-solid fa-utensils"></i> Food Ordering System</h2>
+  </div>
+
+  <div class="store-layout">
+    <div class="store-main">
+      <div class="store-toolbar">
+        <input type="text" id="food-search" placeholder="Search food items..." oninput="renderFoodItems()">
+      </div>
+
+      <div id="food-grid" class="store-grid"></div>
+    </div>
+
+    <!-- Shopping Cart Panel -->
+    <div class="store-cart-panel">
+      <h3><i class="fa-solid fa-cart-shopping"></i> Food Cart</h3>
+      <div id="food-cart-items" class="cart-items-list"></div>
+      <div class="cart-summary">
+        <div class="summary-line"><span>Total:</span> <strong id="food-cart-total">$0.00</strong></div>
+        <button class="module-btn" onclick="checkoutFoodCart()">Checkout</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLOTHING STORE MODULE ================= -->
+<section id="clothing-tab" class="tab-content hidden-tab">
+  <div class="module-header-bar">
+    <button class="btn-back" onclick="closeModule()"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button>
+    <h2><i class="fa-solid fa-shirt"></i> Clothing Store</h2>
+  </div>
+
+  <div class="store-layout">
+    <div class="store-main">
+      <div class="store-toolbar">
+        <input type="text" id="clothes-search" placeholder="Search products..." oninput="renderClothesItems()">
+      </div>
+
+      <div id="clothes-grid" class="store-grid"></div>
+    </div>
+
+    <!-- Shopping Cart Panel -->
+    <div class="store-cart-panel">
+      <h3><i class="fa-solid fa-bag-shopping"></i> Shopping Cart</h3>
+      <div id="clothes-cart-items" class="cart-items-list"></div>
+      <div class="cart-summary">
+        <div class="summary-line"><span>Total:</span> <strong id="clothes-cart-total">$0.00</strong></div>
+        <button class="module-btn" onclick="checkoutClothesCart()">Checkout</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= DIGITAL BOOK STORE MODULE ================= -->
+<section id="books-tab" class="tab-content hidden-tab">
+  <div class="module-header-bar">
+    <button class="btn-back" onclick="closeModule()"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button>
+    <h2><i class="fa-solid fa-book"></i> Digital Book Store</h2>
+  </div>
+
+  <div class="store-layout">
+    <div class="store-main">
+      <div class="store-toolbar">
+        <input type="text" id="books-search" placeholder="Search books by title or author..." oninput="renderBookItems()">
+        <select id="books-category-filter" class="book-category-select" onchange="renderBookItems()">
+          <option value="All">All Categories</option>
+          <option value="Programming">Programming</option>
+          <option value="Business">Business</option>
+          <option value="Science">Science</option>
+          <option value="Education">Education</option>
+          <option value="Fiction">Fiction</option>
+          <option value="burmese (">burmese </option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div id="books-grid" class="store-grid"></div>
+    </div>
+
+
+    <!-- Shopping Cart Panel -->
+    <div class="store-cart-panel">
+      <h3><i class="fa-solid fa-cart-shopping"></i> Book Cart</h3>
+      <div id="books-cart-items" class="cart-items-list"></div>
+      <div class="cart-summary">
+        <div class="summary-line"><span>Total:</span> <strong id="books-cart-total">$0.00</strong></div>
+        <button class="module-btn" onclick="checkoutBookCart()">Checkout</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= MONEY MANAGER MODULE ================= -->
+<section id="money-tab" class="tab-content hidden-tab">
+  <div class="module-header-bar">
+    <button class="btn-back" onclick="closeModule()"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</button>
+    <h2><i class="fa-solid fa-wallet"></i> Money Manager</h2>
+  </div>
+
+  <!-- Dashboard Overview Cards -->
+  <div class="mm-dashboard-grid">
+    <div class="mm-card mm-balance-card">
+      <div class="mm-card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+      <div class="mm-card-info">
+        <span>Total Balance</span>
+        <h3 id="mm-total-balance">$0.00</h3>
+      </div>
+    </div>
+    <div class="mm-card mm-income-card">
+      <div class="mm-card-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+      <div class="mm-card-info">
+        <span>Total Income</span>
+        <h3 id="mm-total-income">$0.00</h3>
+      </div>
+    </div>
+    <div class="mm-card mm-expense-card">
+      <div class="mm-card-icon"><i class="fa-solid fa-arrow-trend-down"></i></div>
+      <div class="mm-card-info">
+        <span>Total Expenses</span>
+        <h3 id="mm-total-expenses">$0.00</h3>
+      </div>
+    </div>
+    <div class="mm-card mm-savings-card">
+      <div class="mm-card-icon"><i class="fa-solid fa-piggy-bank"></i></div>
+      <div class="mm-card-info">
+        <span>Savings Rate</span>
+        <h3 id="mm-savings-rate">0%</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Budget System Banner -->
+  <div class="mm-budget-panel">
+    <div class="mm-budget-header">
+      <div>
+        <h3><i class="fa-solid fa-bullseye"></i> Monthly Budget Target</h3>
+        <p>Set and manage your monthly budget limit</p>
+      </div>
+      <div class="mm-budget-input-group">
+        <input type="number" id="mm-budget-input" placeholder="Set Limit ($)" min="0" step="0.01">
+        <button class="module-btn" onclick="saveMonthlyBudget()">Set Budget</button>
+      </div>
+    </div>
+    <div class="mm-budget-progress-wrapper">
+      <div class="mm-budget-stats">
+        <span>Budget: <strong id="mm-budget-limit">$0.00</strong></span>
+        <span>Remaining: <strong id="mm-budget-remaining">$0.00</strong></span>
+      </div>
+      <div class="mm-progress-bar-bg">
+        <div id="mm-budget-progress-fill" class="mm-progress-fill"></div>
+      </div>
+      <div id="mm-budget-warning" class="mm-budget-warning hidden">
+        <i class="fa-solid fa-triangle-exclamation"></i> Warning: You have exceeded 80% of your budget!
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Management Layout -->
+  <div class="mm-main-layout">
+    <!-- Form Side -->
+    <div class="mm-form-card">
+      <h3 id="mm-form-title"><i class="fa-solid fa-plus-circle"></i> Add Transaction</h3>
+      <form id="mm-transaction-form" onsubmit="handleTransactionSubmit(event)">
+        <input type="hidden" id="mm-edit-id" value="">
+        
+        <div class="form-group">
+          <label for="mm-type">Type</label>
+          <select id="mm-type" required>
+            <option value="Expense">Expense</option>
+            <option value="Income">Income</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mm-title">Description / Title</label>
+          <input type="text" id="mm-title" placeholder="e.g. Grocery Shopping" required>
+        </div>
+
+        <div class="form-group">
+          <label for="mm-amount">Amount ($)</label>
+          <input type="number" id="mm-amount" step="0.01" min="0.01" placeholder="e.g. 45.50" required>
+        </div>
+
+        <div class="form-group">
+          <label for="mm-category">Category</label>
+          <select id="mm-category" required>
+            <option value="Food">Food</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Education">Education</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Bills">Bills</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Health">Health</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mm-date">Date</label>
+          <input type="date" id="mm-date" required>
+        </div>
+
+        <div class="mm-form-actions">
+          <button type="submit" id="mm-submit-btn" class="module-btn">Save Transaction</button>
+          <button type="button" id="mm-cancel-btn" class="checkout-btn secondary hidden" onclick="cancelEditTransaction()">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Analytics & History Side -->
+    <div class="mm-data-panel">
+      <!-- Toolbar: Search, Filter, Export -->
+      <div class="mm-toolbar">
+        <input type="text" id="mm-search-input" placeholder="Search title..." oninput="renderMoneyManager()">
+        <select id="mm-filter-category" onchange="renderMoneyManager()">
+          <option value="All">All Categories</option>
+          <option value="Food">Food</option>
+          <option value="Transportation">Transportation</option>
+          <option value="Education">Education</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Bills">Bills</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Health">Health</option>
+          <option value="Other">Other</option>
+        </select>
+        <input type="date" id="mm-filter-date" onchange="renderMoneyManager()">
+        <button class="module-btn mm-btn-csv" onclick="exportTransactionsCSV()"><i class="fa-solid fa-file-csv"></i> CSV</button>
+      </div>
+
+      <!-- Expense Breakdown Analytics Bar -->
+      <div class="mm-analytics-card">
+        <h4><i class="fa-solid fa-chart-pie"></i> Category Expense Breakdown</h4>
+        <div id="mm-category-bars" class="mm-category-bars-container"></div>
+      </div>
+
+      <!-- Transaction History Table -->
+      <div class="mm-table-wrapper">
+        <table class="mm-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="mm-transaction-list"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ================= AI ASSISTANT CHAT MODULE ================= -->
+<section id="ai-chat-tab" class="tab-content hidden-tab">
+  <div class="module-header-bar">
+    <button class="btn-back" onclick="closeModule()">
+      <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+    </button>
+    <h2><i class="fa-solid fa-robot"></i> TechTitan AI Assistant</h2>
+  </div>
+
+  <div class="ai-chat-container">
+    <!-- Chat Header Controls -->
+    <div class="ai-chat-header">
+      <div class="ai-chat-status">
+        <span class="status-dot"></span>
+        <span> AI Engine Online</span>
+      </div>
+      <button class="btn-tech-pill btn-clear-chat" id="ai-clear-btn" onclick="clearAIChatHistory()">
+        <i class="fa-solid fa-trash-can"></i> Clear History
+      </button>
+    </div>
+
+    <!-- Chat Messages Window -->
+    <div class="ai-chat-body" id="ai-chat-body">
+      <!-- Dynamic messages and typing indicators will render here -->
+    </div>
+
+    <!-- Chat Input Form -->
+    <form class="ai-chat-input-area" id="ai-chat-form" onsubmit="handleAIChatSubmit(event)">
+      <input 
+        type="text" 
+        id="ai-chat-input" 
+        placeholder="Ask TechTitan AI anything..." 
+        autocomplete="off"
+        required
+      />
+      <button type="submit" id="ai-send-btn" class="module-btn">
+        <i class="fa-solid fa-paper-plane"></i> Send
+      </button>
+    </form>
+  </div>
+</section>
+
 
     </main>
   </div>
 
-  
+  <!-- NEW CODE START -->
+<!-- Multi-Step Checkout Modal -->
+<div id="checkoutModal" class="checkout-modal">
+  <div class="checkout-modal-content">
+   <div class="checkout-header">
+  <div class="checkout-progress">
+    <div class="step-indicator active" id="step-ind-1">1. Cart</div>
+    <div class="step-indicator" id="step-ind-2">2. Payment</div>
+    <div class="step-indicator" id="step-ind-3">3. Customer Info</div>
+    <div class="step-indicator" id="step-ind-4">4. Confirm</div>
+    <div class="step-indicator" id="step-ind-5">5. Success</div>
+  </div>
+  <button class="checkout-close-btn" onclick="closeCheckoutModal()">&times;</button>
+</div>
+
+    <!-- Step 1: Cart Review Page -->
+    <div id="checkout-step-1" class="checkout-step active">
+      <h3>Cart Review</h3>
+      <div id="checkout-cart-items" class="checkout-cart-list"></div>
+      <div class="checkout-summary">
+        <h4>Total Amount: <span id="checkout-total-price">$0.00</span></h4>
+      </div>
+      <button class="checkout-btn" onclick="proceedFromCartToPayment()">Proceed to Payment</button>
+    </div>
+
+    <!-- Step 2: Payment Selection Page -->
+    <div id="checkout-step-2" class="checkout-step">
+      <h3>Select Payment Method</h3>
+      <div class="payment-options">
+        
+ <!-- KBZPay -->
+<label class="payment-card">
+  <input type="radio" name="paymentMethod" value="KBZPay" checked>
+  <img src="Photos Collections/KBZpay.png" class="pay-icon" alt="KBZPay">
+  <span>KBZPay</span>
+</label>
+
+<!-- WavePay -->
+<label class="payment-card">
+  <input type="radio" name="paymentMethod" value="WavePay">
+  <img src="Photos Collections/wavepay.jfif" class="pay-icon" alt="WavePay">
+  <span>WavePay</span>
+</label>
+
+<!-- AYA Pay -->
+<label class="payment-card">
+  <input type="radio" name="paymentMethod" value="AYA Pay">
+  <img src="Photos Collections/Ayapay.png" class="pay-icon" alt="AYA Pay">
+  <span>AYA Pay</span>
+</label>
+
+<!-- UAB Pay -->
+<label class="payment-card">
+  <input type="radio" name="paymentMethod" value="UAB Pay">
+  <img src="Photos Collections/uabpay.jfif" class="pay-icon" alt="UAB Pay">
+  <span>UAB Pay</span>
+</label>
+
+
+
+<!-- VISA-->
+<label class="payment-card">
+  <input type="radio" name="paymentMethod" value="VISA Card">
+  <img src="Photos Collections/VISA.png" class="pay-icon" alt="VISA Card">
+  <span>VISA Card</span>
+</label>
+
+
+
+<!-- PayPal -->
+<label class="payment-card">
+  <input type="radio" name="paymentMethod" value="PayPal">
+  <img src="Photos Collections/Paypal.png" class="pay-icon" alt="PayPal">
+  <span>PayPal</span>
+</label>
+      </div>
+      <div class="checkout-actions">
+        <button class="checkout-btn secondary" onclick="goToStep(1)">Back</button>
+        <button class="checkout-btn" onclick="goToStep(3)">Continue</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Customer Information Form -->
+    <div id="checkout-step-3" class="checkout-step">
+      <h3>Customer Information</h3>
+      <form id="customer-info-form" onsubmit="event.preventDefault(); processCustomerInfo();">
+        <div class="form-group">
+          <label for="cust-name">Full Name *</label>
+          <input type="text" id="cust-name" required placeholder="Enter full name">
+        </div>
+        <div class="form-group">
+          <label for="cust-phone">Phone Number *</label>
+          <input type="tel" id="cust-phone" required placeholder="Enter phone number">
+        </div>
+        <div class="form-group">
+          <label for="cust-email">Email Address *</label>
+          <input type="email" id="cust-email" required placeholder="Enter email address">
+        </div>
+        <div class="form-group">
+          <label for="cust-address">Delivery Address *</label>
+          <input type="text" id="cust-address" required placeholder="Street address">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cust-city">City</label>
+            <input type="text" id="cust-city" placeholder="e.g. Yangon">
+          </div>
+          <div class="form-group">
+            <label for="cust-township">Township</label>
+            <input type="text" id="cust-township" placeholder="e.g. Kamayut">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cust-notes">Additional Notes (Optional)</label>
+          <textarea id="cust-notes" rows="2" placeholder="Special delivery instructions"></textarea>
+        </div>
+        <div class="checkout-actions">
+          <button type="button" class="checkout-btn secondary" onclick="goToStep(2)">Back</button>
+          <button type="submit" class="checkout-btn">Continue</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 4: Order Confirmation Page -->
+    <div id="checkout-step-4" class="checkout-step">
+      <h3>Order Confirmation</h3>
+      <div class="confirmation-details">
+        <p><strong>Name:</strong> <span id="conf-name"></span></p>
+        <p><strong>Phone:</strong> <span id="conf-phone"></span></p>
+        <p><strong>Email:</strong> <span id="conf-email"></span></p>
+        <p><strong>Address:</strong> <span id="conf-address"></span></p>
+        <p><strong>Payment Method:</strong> <span id="conf-payment"></span></p>
+      </div>
+      <div id="conf-cart-summary" class="checkout-cart-list"></div>
+      <h4>Total: <span id="conf-total-price"></span></h4>
+      <div class="checkout-actions">
+        <button class="checkout-btn secondary" onclick="goToStep(3)">Back</button>
+        <button id="confirmOrderBtn" class="order-button" onclick="handleOrderSubmit(this)">
+          <span class="default-text">Confirm Order</span>
+          <span class="success-text">Complete Order</span>
+          <div class="truck">
+            <div class="wheel back"></div>
+            <div class="wheel front"></div>
+          </div>
+          <div class="package"></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 5: Success Page -->
+    <div id="checkout-step-5" class="checkout-step">
+      <div class="success-banner">
+        <h2>✓ Order Submitted Successfully</h2>
+      </div>
+      <div class="order-summary-box">
+        <p><strong>Order ID:</strong> <span id="succ-order-id"></span></p>
+        <p><strong>Customer Name:</strong> <span id="succ-name"></span></p>
+        <p><strong>Payment Method:</strong> <span id="succ-payment"></span></p>
+        <p><strong>Total Amount:</strong> <span id="succ-total"></span></p>
+        <p><strong>Order Date:</strong> <span id="succ-date"></span></p>
+      </div>
+      <div class="checkout-actions">
+        <button class="checkout-btn" onclick="finishCheckout()">Return to Store</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- NEW CODE END -->
+
+
+<!-- Reusable Confirmation Modal -->
+<div id="custom-confirm-modal" class="custom-modal-overlay hidden">
+  <div class="custom-modal-card">
+    <div class="custom-modal-icon" id="modal-icon">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+    </div>
+    <h3 id="modal-title">Are you sure?</h3>
+    <p id="modal-message">This action cannot be undone.</p>
+    <div class="custom-modal-actions">
+      <button id="modal-btn-cancel" class="modal-btn modal-btn-secondary">Cancel</button>
+      <button id="modal-btn-confirm" class="modal-btn modal-btn-danger">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast-notification" class="toast-notification">
+  <i class="fa-solid fa-circle-notch fa-spin"></i>
+  <span id="toast-message">Opening module...</span>
+</div>
+
+
+<div id="confirm-modal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <h3>Clear Chat History?</h3>
+    </div>
+    <p>Are you sure you want to clear all AI chat history? This action cannot be undone.</p>
+    <div class="modal-actions">
+      <button id="modal-cancel-btn" class="btn-cancel">Cancel</button>
+      <button id="modal-confirm-btn" class="btn-confirm">Confirm</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Team Member Modal Overlay -->
+<div id="team-modal" class="team-modal-overlay" onclick="handleModalOverlayClick(event)">
+  <div class="team-modal-card">
+    <button class="modal-x-close" onclick="closeMemberModal()">&times;</button>
+    <div id="team-modal-body"></div>
+  </div>
+</div>
 
   <script src="script.js"></script>
+  <script src="weather.js"></script>
 </body>
 </html>
+
+
+
